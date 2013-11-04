@@ -33,15 +33,17 @@
             this.tbWidth = new System.Windows.Forms.TextBox();
             this.tbHeight = new System.Windows.Forms.TextBox();
             this.gbExportOptions = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnExportFiles = new System.Windows.Forms.Button();
+            this.cbMaintainAspectRatio = new System.Windows.Forms.CheckBox();
             this.pbExportFiles = new System.Windows.Forms.ProgressBar();
+            this.btnExportFiles = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tssl_Status = new System.Windows.Forms.ToolStripStatusLabel();
             this.bwExportFiles = new System.ComponentModel.BackgroundWorker();
-            this.cbMaintainAspectRatio = new System.Windows.Forms.CheckBox();
             this.rtbSelectedFolder = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbfolder = new System.Windows.Forms.TextBox();
             this.gbExportOptions.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -58,24 +60,26 @@
             // 
             // tbWidth
             // 
-            this.tbWidth.Location = new System.Drawing.Point(47, 28);
+            this.tbWidth.Location = new System.Drawing.Point(46, 50);
             this.tbWidth.Name = "tbWidth";
             this.tbWidth.Size = new System.Drawing.Size(42, 20);
             this.tbWidth.TabIndex = 1;
-            this.tbWidth.Text = "200";
+            this.tbWidth.Text = "100";
             this.tbWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tbHeight
             // 
-            this.tbHeight.Location = new System.Drawing.Point(47, 54);
+            this.tbHeight.Location = new System.Drawing.Point(46, 79);
             this.tbHeight.Name = "tbHeight";
             this.tbHeight.Size = new System.Drawing.Size(42, 20);
             this.tbHeight.TabIndex = 2;
-            this.tbHeight.Text = "200";
+            this.tbHeight.Text = "100";
             this.tbHeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // gbExportOptions
             // 
+            this.gbExportOptions.Controls.Add(this.tbfolder);
+            this.gbExportOptions.Controls.Add(this.label3);
             this.gbExportOptions.Controls.Add(this.cbMaintainAspectRatio);
             this.gbExportOptions.Controls.Add(this.pbExportFiles);
             this.gbExportOptions.Controls.Add(this.btnExportFiles);
@@ -86,32 +90,31 @@
             this.gbExportOptions.Enabled = false;
             this.gbExportOptions.Location = new System.Drawing.Point(13, 119);
             this.gbExportOptions.Name = "gbExportOptions";
-            this.gbExportOptions.Size = new System.Drawing.Size(260, 167);
+            this.gbExportOptions.Size = new System.Drawing.Size(260, 198);
             this.gbExportOptions.TabIndex = 3;
             this.gbExportOptions.TabStop = false;
             this.gbExportOptions.Text = "Export";
             // 
-            // label1
+            // cbMaintainAspectRatio
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "width";
+            this.cbMaintainAspectRatio.AutoSize = true;
+            this.cbMaintainAspectRatio.Location = new System.Drawing.Point(7, 114);
+            this.cbMaintainAspectRatio.Name = "cbMaintainAspectRatio";
+            this.cbMaintainAspectRatio.Size = new System.Drawing.Size(130, 17);
+            this.cbMaintainAspectRatio.TabIndex = 7;
+            this.cbMaintainAspectRatio.Text = "Maintain Aspect Ratio";
+            this.cbMaintainAspectRatio.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // pbExportFiles
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "height";
+            this.pbExportFiles.Location = new System.Drawing.Point(6, 166);
+            this.pbExportFiles.Name = "pbExportFiles";
+            this.pbExportFiles.Size = new System.Drawing.Size(248, 23);
+            this.pbExportFiles.TabIndex = 6;
             // 
             // btnExportFiles
             // 
-            this.btnExportFiles.Location = new System.Drawing.Point(7, 108);
+            this.btnExportFiles.Location = new System.Drawing.Point(7, 137);
             this.btnExportFiles.Name = "btnExportFiles";
             this.btnExportFiles.Size = new System.Drawing.Size(247, 23);
             this.btnExportFiles.TabIndex = 5;
@@ -119,18 +122,29 @@
             this.btnExportFiles.UseVisualStyleBackColor = true;
             this.btnExportFiles.Click += new System.EventHandler(this.btnExportFiles_Click);
             // 
-            // pbExportFiles
+            // label2
             // 
-            this.pbExportFiles.Location = new System.Drawing.Point(6, 137);
-            this.pbExportFiles.Name = "pbExportFiles";
-            this.pbExportFiles.Size = new System.Drawing.Size(248, 23);
-            this.pbExportFiles.TabIndex = 6;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 82);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "height";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "width";
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tssl_Status});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 289);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 329);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(285, 22);
             this.statusStrip1.TabIndex = 4;
@@ -148,16 +162,6 @@
             this.bwExportFiles.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bwExportFiles_ProgressChanged);
             this.bwExportFiles.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwExportFiles_RunWorkerCompleted);
             // 
-            // cbMaintainAspectRatio
-            // 
-            this.cbMaintainAspectRatio.AutoSize = true;
-            this.cbMaintainAspectRatio.Location = new System.Drawing.Point(7, 85);
-            this.cbMaintainAspectRatio.Name = "cbMaintainAspectRatio";
-            this.cbMaintainAspectRatio.Size = new System.Drawing.Size(130, 17);
-            this.cbMaintainAspectRatio.TabIndex = 7;
-            this.cbMaintainAspectRatio.Text = "Maintain Aspect Ratio";
-            this.cbMaintainAspectRatio.UseVisualStyleBackColor = true;
-            // 
             // rtbSelectedFolder
             // 
             this.rtbSelectedFolder.Enabled = false;
@@ -167,11 +171,28 @@
             this.rtbSelectedFolder.TabIndex = 6;
             this.rtbSelectedFolder.Text = "";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "folder";
+            // 
+            // tbfolder
+            // 
+            this.tbfolder.Location = new System.Drawing.Point(46, 25);
+            this.tbfolder.Name = "tbfolder";
+            this.tbfolder.Size = new System.Drawing.Size(91, 20);
+            this.tbfolder.TabIndex = 9;
+            this.tbfolder.Text = "kucuk";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(285, 311);
+            this.ClientSize = new System.Drawing.Size(285, 351);
             this.Controls.Add(this.rtbSelectedFolder);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.gbExportOptions);
@@ -203,6 +224,8 @@
         private System.ComponentModel.BackgroundWorker bwExportFiles;
         private System.Windows.Forms.CheckBox cbMaintainAspectRatio;
         private System.Windows.Forms.RichTextBox rtbSelectedFolder;
+        private System.Windows.Forms.TextBox tbfolder;
+        private System.Windows.Forms.Label label3;
     }
 }
 

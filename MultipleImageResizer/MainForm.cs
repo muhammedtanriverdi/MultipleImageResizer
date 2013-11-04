@@ -31,8 +31,6 @@ namespace MultipleImageResizer
 
         private void btnSelectFolder_Click(object sender, EventArgs e)
         {
-            
-
             // Control user select a folder
             if (fbdSelectImageFolder.ShowDialog() == DialogResult.OK)
             {
@@ -56,6 +54,9 @@ namespace MultipleImageResizer
                 // Disable export files button
                 gbExportOptions.Enabled = false;
             }
+
+            // Set text of status strip
+            SetStatusStripText("");
         }
 
 
@@ -156,7 +157,7 @@ namespace MultipleImageResizer
         {
             Bitmap newImage;
 
-            string subPath = folderPath + "/small/";
+            string subPath = folderPath + "/" + tbfolder.Text + "/";
 
             bool isExists = System.IO.Directory.Exists(subPath);
 
@@ -178,7 +179,7 @@ namespace MultipleImageResizer
                 {
                 }
 
-                bwExportFiles.ReportProgress(i++);
+                bwExportFiles.ReportProgress(++i);
             }
         }
 
@@ -190,6 +191,7 @@ namespace MultipleImageResizer
         private void bwExportFiles_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             SetStatusStripText("All image files export succesfully");
+            pbExportFiles.Value = 0;
         }
     }
 
